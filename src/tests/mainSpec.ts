@@ -44,13 +44,19 @@ describe('test image transformation', () => {
 describe('test cach file methods', () => {
   it('Expect to store image name at cach file successfully', async () => {
     // check if we can store image name at cach file successfully
-    const result = await storeImages('fjord200200');
+    const result = await storeImages('fjord200200\n');
     expect(result).toBeTrue();
   });
 
-  it('Expect to read cach file successfully to check if the image exists at the cach', async () => {
+  it('Expect to read cach file successfully return true if it find the image', async () => {
     // return true if the image exist
     const result = await readImages('./src/cachFile.txt', 'fjord200200');
     expect(result).toBeTrue();
   });
+
+  it('Expect to read cach file successfully return false if it did not find the image', async () => {
+    const result = await readImages('./src/cachFile.txt', 'Argentina200200');
+    expect(result).toBeFalse();
+  });
 });
+
