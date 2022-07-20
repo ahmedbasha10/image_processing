@@ -7,8 +7,8 @@ const app = express();
 app.use('/api', apiRoute);
 app.use('/api/images', route);
 
-app.listen(3000, () => {
-  console.log('server is running on port 3000');
+app.listen(8000, () => {
+  console.log('server is running on port 8000');
 });
 
 export default app;
